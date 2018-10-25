@@ -1,2 +1,2 @@
 # python
-Python Projects
+Python Projects done for fun
