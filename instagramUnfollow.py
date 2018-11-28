@@ -28,8 +28,8 @@ from selenium.common.exceptions import StaleElementReferenceException		# Module 
 
 # Define strings
 url = 'https://instagram.com'
-username = 'orestisz93'
-password = 'KJDr6LH8t4AhhqV'
+username = 'xxxxxx'
+password = 'xxxxxx'
 path = r'C:\Users\OrWestSide\Desktop\Side projects\Python\Instagram Unfollow Tool\chromedriver_win32\chromedriver.exe'
 celebrities = ['instagram', 'cristiano', 'beyonce', 'therock', 'justinbieber', 'jlo']
 
