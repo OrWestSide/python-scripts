@@ -5,3 +5,5 @@ Python Projects done for fun
    A simple tool that enables you to get followers by following and unfollowing famous IG accounts
 2. Encode Group API Project:
    A project that demonstrates the use of StackExchage API to calculate some stats.
+3. Seven Segment Display Adder
+   A fun tool that takes 2 2-digit integers and calculates their sum by printing them in seven segment display format.
