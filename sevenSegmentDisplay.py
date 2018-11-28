@@ -26,35 +26,14 @@ def drawDigit(digit, rel_pos):
 	# G
 	pygame.draw.rect(win, ssdDisp(nums[digit],0), (rel_pos, 110, width, height))
 
-### Actual program
-print('Enter the first number:')
-first = int(input())
-print('Enter the second number:')
-second = int(input())
 
-# Convert to ssd
-first2 = first % 10
-first1 = int(first/10)
-second2 = second % 10
-second1 = int(second/10)
-
-# Add and convert to ssd
-summ = first + second
-if (summ > 100):
-	summ1 = 1
-	summ3 = (summ - 100) % 10
-	summ2 = int((summ-100)/10)
-else:
-	summ1 = 0
-	summ3 = summ % 10
-	summ2 = int(summ/10)
 
 # Initialize pygame
 pygame.init()
 
 # Create window
 win = pygame.display.set_mode((800,250))
-pygame.display.set_caption('Seven Segment Display')
+pygame.display.set_caption('Seven Segment Display Adder')
 
 
 
@@ -62,36 +41,69 @@ pygame.display.set_caption('Seven Segment Display')
 width = 46
 height = 9
 run = True
+givenNums = False
 while run:
 	pygame.time.delay(300)
 
-	# Digit 1
-	drawDigit(first1,50)
-	# Digit 2
-	drawDigit(first2,129)
+	if (givenNums == False):
+		pygame.display.update()
+		print('Enter the first number:')
+		first = int(input())
+
+		first2 = first % 10
+		first1 = int(first/10)
+
+		# Digit 1
+		drawDigit(first1,50)
+		# Digit 2
+		drawDigit(first2,129)
+
+		pygame.display.update()
+
+		# Plus sign
+		pygame.draw.rect(win, (255,0,0), (199,110,width,height))
+		pygame.draw.rect(win, (255,0,0), (219,90,height,width))
+
+		pygame.display.update()
+
+		print('Enter the second number:')
+		second = int(input())
+
+		second2 = second % 10
+		second1 = int(second/10)
 	
-	# Plus sign
-	pygame.draw.rect(win, (255,0,0), (199,110,width,height))
-	pygame.draw.rect(win, (255,0,0), (219,90,height,width))
+		# Digit 3
+		drawDigit(second1,269)
+		# Digit 4
+		drawDigit(second2,349)	
 
-	# Digit 3
-	drawDigit(second1,269)
-	# Digit 4
-	drawDigit(second2,349)
+		# Equals sign
+		pygame.draw.rect(win, (255,0,0), (419,100,width,height))
+		pygame.draw.rect(win, (255,0,0), (419,120,width,height))
 
-	# Equals sign
-	pygame.draw.rect(win, (255,0,0), (419,100,width,height))
-	pygame.draw.rect(win, (255,0,0), (419,120,width,height))
+		summ = first + second
+		if (summ > 100):
+			summ1 = 1
+			summ3 = (summ - 100) % 10
+			summ2 = int((summ-100)/10)
+		else:
+			summ1 = 0
+			summ3 = summ % 10
+			summ2 = int(summ/10)
 
-	# Digit 5
-	drawDigit(summ1,489)
-	# Digit 6
-	drawDigit(summ2,564)
-	# Digit 7
-	drawDigit(summ3,644)
+		pygame.display.update()
 
-	# # Display next number
-	pygame.display.update()
+		# Digit 5
+		drawDigit(summ1,489)
+		# Digit 6
+		drawDigit(summ2,564)
+		# Digit 7
+		drawDigit(summ3,644)
+
+		givenNums = True
+
+	# Display next number
+	# pygame.display.update()
 
 	# If user presses X, quit the loop
 	for event in pygame.event.get():
