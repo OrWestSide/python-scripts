@@ -7,3 +7,5 @@ Python Projects done for fun
    A project that demonstrates the use of StackExchage API to calculate some stats.
 3. Seven Segment Display Adder
    A fun tool that takes 2 2-digit integers and calculates their sum by printing them in seven segment display format.
+4. Bubble Sort Viz
+   Visualisation of bubble sort. For more visualized sorting algorithms, contact me.
