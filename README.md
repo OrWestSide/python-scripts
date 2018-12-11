@@ -9,3 +9,5 @@ Python Projects done for fun
    A fun tool that takes 2 2-digit integers and calculates their sum by printing them in seven segment display format.
 4. Bubble Sort Viz
    Visualisation of bubble sort. For more visualized sorting algorithms, contact me.
+5. Invaders
+   A simple implementation of the classic game "Space Invaders"
