@@ -38,7 +38,7 @@ class Minion1:
 	# Minion1 constructior
 	def __init__(self, p1, p2):
 		self.health = 1
-		self.speed = 1
+		self.speed = 2
 		self.p1 = p1
 		self.p2 = p2
 		self.size = 12
@@ -95,7 +95,7 @@ class Minion2:
 	# Minion2 constructor
 	def __init__(self, p1, p2):
 		self.health = 1
-		self.speed = 1
+		self.speed = 2
 		self.p1 = p1
 		self.p2 = p2
 		self.size = 20
@@ -152,7 +152,7 @@ class Minion3:
 	# Minion3 constructor
 	def __init__(self, p1, p2):
 		self.health = 1
-		self.speed = 1
+		self.speed = 2
 		self.p1 = p1
 		self.p2 = p2
 		self.size = 20
@@ -199,6 +199,22 @@ class Minion3:
 	def move(self):
 		self.p1 = self.p1 + self.speed
 
+class Bullet:
+	# Define constructor
+	def __init__(self,p1,p2):
+		self.p1 = p1
+		self.p2 = p2
+		self.length = 10
+
+	def draw(self):
+		pygame.draw.line(win, (255,255,255), (self.p1,self.p2), (self.p1,self.p2 - self.length))
+
+	def unDraw(self):
+		pygame.draw.line(win, (0,0,0),  (self.p1,self.p2), (self.p1,self.p2 - self.length*3))
+
+	def move(self):
+		self.p2 = self.p2 - self.length*3
+
 class Player:
 	# Player constructor
 	def __init__(self):
@@ -242,23 +258,6 @@ class Player:
 			pygame.display.update()
 			start_point = self.p2-bullet_speed
 
-# Define function that draws the bullet (we are going to use this a lot)
-def drawBullet(start_point, end_point, b_speed):
-	# Bullet speed & other params
-	bullet_speed = b_speed
-	first = True
-	# While target not hit
-	while (start_point > end_point):
-		if (first == False):
-			pygame.draw.line(win, (0,0,0), (pl.p1+10,pl.p2-13-bullet_speed+b_speed), (pl.p1+10,pl.p2-13-bullet_speed-10+b_speed))
-			pygame.display.update()
-		pygame.draw.line(win, (255,255,255), (pl.p1+10,pl.p2-13-bullet_speed), (pl.p1+10,pl.p2-13-10-bullet_speed))
-		bullet_speed = bullet_speed + b_speed
-		pygame.display.update()
-		start_point = start_point - 1*b_speed	
-		first = False
-	pygame.draw.line(win, (0,0,0), (pl.p1+10,pl.p2-13-bullet_speed+2), (pl.p1+10,pl.p2-13-bullet_speed-10))
-	pygame.display.update()	
 
 # Show score on screen
 def showScore(score):
@@ -322,6 +321,23 @@ for i in range(10):
 pl = Player()
 pl.draw()
 
+# Bullets list
+bullets = []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Main loop
 score = 0
 pr_score = -1
@@ -352,13 +368,68 @@ while run:
 		minion5_list[i].move()
 		minion5_list[i].draw()
 
+		# If we hit an edge
 		if (minion1_list[i].p1 > 460 or minion1_list[i].p1 < 20):
 			for i in range(10):
 				minion1_list[i].speed = minion1_list[i].speed * (-1)
+				minion1_list[i].unDraw()
+				minion1_list[i].p2 = minion1_list[i].p2 + 20
+
 				minion2_list[i].speed = minion2_list[i].speed * (-1)
+				minion2_list[i].unDraw()
+				minion2_list[i].p2 = minion2_list[i].p2 + 20
+
 				minion3_list[i].speed = minion3_list[i].speed * (-1)
+				minion3_list[i].unDraw()
+				minion3_list[i].p2 = minion3_list[i].p2 + 20
+
 				minion4_list[i].speed = minion4_list[i].speed * (-1)
+				minion4_list[i].unDraw()
+				minion4_list[i].p2 = minion4_list[i].p2 + 20
+
 				minion5_list[i].speed = minion5_list[i].speed * (-1)
+				minion5_list[i].unDraw()
+				minion5_list[i].p2 = minion5_list[i].p2 + 20
+
+
+	# Draw bullets
+	for bullet in bullets:
+		bullet.unDraw()
+		bullet.move()
+
+		# Check if bullet has reached the end of the screen
+		if (bullet.p2 < 0):
+			bullets.remove(bullet)
+
+		# Check if I hit a minion
+ 		for i in range(10):
+			if (bullet.p1 > minion5_list[i].p1 and bullet.p1 < minion5_list[i].p1 + minion5_list[i].size and minion5_list[i].health == 1 and bullet.p2 < minion5_list[i].p2):
+				minion5_list[i].getDestroyed()
+				score = score + 1
+				bullet.unDraw()
+				bullets.remove(bullet)
+			elif (bullet.p1 > minion4_list[i].p1 and bullet.p1 < minion4_list[i].p1 + minion4_list[i].size and minion4_list[i].health == 1 and bullet.p2 < minion4_list[i].p2):
+				minion4_list[i].getDestroyed()
+				score = score + 1
+				bullet.unDraw()
+				bullets.remove(bullet)
+			elif (bullet.p1 > minion3_list[i].p1 and bullet.p1 < minion3_list[i].p1 + minion3_list[i].size and minion3_list[i].health == 1 and bullet.p2 < minion3_list[i].p2):
+				minion3_list[i].getDestroyed()
+				score = score + 1
+				bullet.unDraw()
+				bullets.remove(bullet)
+			elif (bullet.p1 > minion2_list[i].p1 and bullet.p1 < minion2_list[i].p1 + minion2_list[i].size and minion2_list[i].health == 1 and bullet.p2 < minion2_list[i].p2):
+				minion2_list[i].getDestroyed()
+				score = score + 1
+				bullet.unDraw()
+				bullets.remove(bullet)
+			elif (bullet.p1 > minion1_list[i].p1 and bullet.p1 < minion1_list[i].p1 + minion1_list[i].size and minion1_list[i].health == 1 and bullet.p2 < minion1_list[i].p2):
+				minion1_list[i].getDestroyed()
+				score = score + 1
+				bullet.unDraw()
+				bullets.remove(bullet)
+		
+		bullet.draw()
 
 	pygame.display.update()
 
@@ -373,66 +444,8 @@ while run:
 		pl.move(-1)
 		pl.draw()
 	elif (keys[pygame.K_SPACE]):
-
-		# Check if shield is hit
-		if (pl.p1 + 10 > 30 and pl.p1 + 10 < 30 + sh1.size and sh1.health > 0):
-			drawBullet(pl.p2-15, 500, 1)		
-			sh1.getHit()
-			sh1.draw()
-		elif (pl.p1 + 10 > 150 and pl.p1 + 10 < 150 + sh2.size and sh2.health > 0):
-			drawBullet(pl.p2-15, 500, 1)
-			sh2.getHit()
-			sh2.draw()
-		elif (pl.p1 + 10 > 270 and pl.p1 + 10 < 270 + sh3.size and sh3.health > 0):
-			drawBullet(pl.p2-15, 500, 1)
-			sh3.getHit()
-			sh3.draw()
-		elif (pl.p1 + 10 > 390 and pl.p1 + 10 < 390 + sh4.size and sh4.health > 0):
-			drawBullet(pl.p2-15, 500, 1)		
-			sh4.getHit()
-			sh4.draw()
-		else:
-			# If a shield is not hit, check if a minion is hit
-			pos = -1
-			for i in range(10):
-				if (pl.p1 + 10 > minion5_list[i].p1 and pl.p1 + 10 < minion5_list[i].p1 + minion5_list[i].size):
-					pos = i
-					break
-			
-			# We now have the column the bullet should hit. Kill the first one you see alive
-			if (pos != -1):
-				if (minion5_list[pos].health == 1):
-					drawBullet(pl.p2-15, minion5_list[pos].p2, 5)
-					score = score + 1
-					minion5_list[pos].getDestroyed()
-					minion5_list[pos].draw()
-				elif (minion4_list[pos].health == 1):
-					drawBullet(pl.p2-15, minion4_list[pos].p2, 5)
-					score = score + 1
-					minion4_list[pos].getDestroyed()
-					minion4_list[pos].draw()
-				elif (minion3_list[pos].health == 1):
-					drawBullet(pl.p2-15, minion3_list[pos].p2, 5)
-					score = score + 1
-					minion3_list[pos].getDestroyed()
-					minion3_list[pos].draw()
-				elif (minion2_list[pos].health == 1):
-					drawBullet(pl.p2-15, minion2_list[pos].p2, 5)
-					score = score + 1
-					minion2_list[pos].getDestroyed()
-					minion2_list[pos].draw()
-				else:
-					for i in range(10):
-						# If the four first rows are destoyed, check for first row points
-						if (pl.p1 + 10 > minion1_list[i].p1 and pl.p1 + 10 < minion1_list[i].p1 + minion1_list[i].size and minion1_list[i].health == 1):
-							score = score + 1
-							drawBullet(pl.p2-15, minion1_list[pos].p2, 5)
-							minion1_list[i].getDestroyed()
-							minion1_list[i].draw()
-							break
-			else:
-				# If nothing is hit...
-				pl.shoot()
+		bullets.append(Bullet(pl.p1+10, pl.p2-12))
+        
  
 	# Show score on screen
 	if (pr_score != score):
