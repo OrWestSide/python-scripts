@@ -11,3 +11,5 @@ Python Projects done for fun
    Visualisation of bubble sort. For more visualized sorting algorithms, contact me.
 5. Invaders (NOT FINAL)
    A simple implementation of the classic game "Space Invaders"
+6. Rain
+   Purple rain by prince
