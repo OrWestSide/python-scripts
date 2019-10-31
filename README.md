@@ -9,6 +9,11 @@ This repository contains mini python projects done in the past to get familiariz
       <br>
       A simple tool developed using selenium that follows and then unfollows famous instagram account to get followers back
    </li>
+   <li>
+      Encode Group API project:
+      <br>
+      A project that demonstrates the usage of the StackExchange API and calculates some statistics. Developed in the context of a coding interview with Encode Group
+   </li>
  </ol>
 
 
@@ -16,10 +21,7 @@ This repository contains mini python projects done in the past to get familiariz
 
 
 
-1. Instagram Unfollower Tool:
-   A simple tool that enables you to get followers by following and unfollowing famous IG accounts
-2. Encode Group API Project:
-   A project that demonstrates the use of StackExchage API to calculate some stats.
+
 3. Seven Segment Display Adder:
    A fun tool that takes 2 2-digit integers and calculates their sum by printing them in seven segment display format.
 4. Bubble Sort Viz:
