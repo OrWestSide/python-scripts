@@ -24,17 +24,14 @@ This repository contains mini python projects done in the past to get familiariz
       <br>
       VIsualization of the bubble sort algorithm. Developed using <strong>pygame</strong>. Inspired by <strong>CodingTrain</strong>. Contact me for more visualized sorting algorithms.
    </li>
+   <li>
+      Space Invades:
+      <br>
+      Implementation of the all time classic game <strong>Space Invaders</strong>. Developed using <strong>pygame</strong>. Inspired by <strong>CodingTrain</strong>.
+   </li>
+   <li>
+      Rain:
+      <br>
+      Purple rain by Prince.
+   </li>
  </ol>
-
-
-
-
-
-
-
-
-
-5. Invaders (NOT FINAL)
-   A simple implementation of the classic game "Space Invaders"
-6. Rain
-   Purple rain by prince
