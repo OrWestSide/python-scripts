@@ -1,5 +1,8 @@
-# python
-Python Projects done for fun
+# Python
+This repository contains mini python projects done in the past to get familiarized with Python and its tools.
+<br>
+<br>
+<strong>Contents</strong>
 
 1. Instagram Unfollower Tool:
    A simple tool that enables you to get followers by following and unfollowing famous IG accounts
