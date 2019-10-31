@@ -34,4 +34,9 @@ This repository contains mini python projects done in the past to get familiariz
       <br>
       Purple rain by Prince.
    </li>
+   <li>
+      Maze:
+      <br>
+      Script that generates a maze using Prim's randomized algorithm.
+   </li>
  </ol>
