@@ -19,6 +19,11 @@ This repository contains mini python projects done in the past to get familiariz
       <br>
       A fun little tool that takes 2 2-digit integers and calculates their sum by printing them in sever segment display format. Developed using <strong>pygame</strong>. Inspired by <strong>CodingTrain</strong>.
    </li>
+   <li>
+      Bubble Sort Visualization:
+      <br>
+      VIsualization of the bubble sort algorithm. Developed using <strong>pygame</strong>. Inspired by <strong>CodingTrain</strong>. Contact me for more visualized sorting algorithms.
+   </li>
  </ol>
 
 
@@ -28,8 +33,7 @@ This repository contains mini python projects done in the past to get familiariz
 
 
 
-4. Bubble Sort Viz:
-   Visualisation of bubble sort. For more visualized sorting algorithms, contact me.
+
 5. Invaders (NOT FINAL)
    A simple implementation of the classic game "Space Invaders"
 6. Rain
