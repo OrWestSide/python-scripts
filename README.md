@@ -3,6 +3,18 @@ This repository contains mini python projects done in the past to get familiariz
 <br>
 <br>
 <strong>Contents</strong>
+<ol>
+   <li>
+      Instagram Unfollower Tool:
+      <br>
+      A simple tool developed using selenium that follows and then unfollows famous instagram account to get followers back
+   </li>
+ </ol>
+
+
+
+
+
 
 1. Instagram Unfollower Tool:
    A simple tool that enables you to get followers by following and unfollowing famous IG accounts
