@@ -37,6 +37,6 @@ This repository contains mini python projects done in the past to get familiariz
    <li>
       Maze:
       <br>
-      Script that generates a maze using Prim's randomized algorithm.
+      Script that generates a maze using <strong>Prim's randomized algorithm</strong>.
    </li>
  </ol>
