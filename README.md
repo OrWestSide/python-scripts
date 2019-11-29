@@ -39,4 +39,9 @@ This repository contains mini python projects done in the past to get familiariz
       <br>
       Script that generates a maze using <strong>Prim's randomized algorithm</strong>.
    </li>
+   <li>
+      Keylogger:
+      <br>
+      Really basic keylogger that gets the inputed keys and saves in `log.txt` file. Extra functionality to be added.
+   </li>
  </ol>
