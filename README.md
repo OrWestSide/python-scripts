@@ -1,5 +1,5 @@
 # Python
-This repository contains mini python projects done in the past to get familiarized with Python and its tools.
+This repository contains mini python scripts done in the past to get familiarized with Python and the Pythonian way of writing code.
 <br>
 <br>
 <strong>Contents</strong>
