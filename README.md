@@ -40,6 +40,11 @@ This repository contains mini python scripts done in the past to get familiarize
       Script that generates a maze using <strong>Prim's randomized algorithm</strong>.
    </li>
    <li>
+      Rat in a maze:
+      <br>
+      Script that solves a trivial maze using backtracking
+   </li>
+   <li>
       Keylogger:
       <br>
       Really basic keylogger that gets the inputed keys and saves in `log.txt` file. Extra functionality to be added.
